@@ -2,6 +2,10 @@
 
 A full-stack web application for tracking books, reading progress, and personal notes.
 
+## UI Preview
+
+![Book Journal UI](frontend/ui.jpg)
+
 ## Tech Stack
 
 - **Frontend**: React
