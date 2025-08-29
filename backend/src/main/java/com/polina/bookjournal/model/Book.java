@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Getter
@@ -28,6 +29,10 @@ public class Book {
 
     @Enumerated(EnumType.STRING)
     private BookStatus status;
+
+    private LocalDate startDate;
+
+    private LocalDate finishDate;
 
     private String coverColor;
 }
