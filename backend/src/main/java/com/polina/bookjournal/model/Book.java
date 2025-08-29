@@ -1,10 +1,19 @@
-com.polina.bookjournal.model;
+package com.polina.bookjournal.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.UUID;
 
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+
 public class Book {
 
     @Id
@@ -21,15 +30,4 @@ public class Book {
     private BookStatus status;
 
     private String coverColor;
-
-    public Book() {}
-
-    public Book(String title, String author, int rating, BookStatus status, String coverColor) {
-        this.title = title;
-        this.author = author;
-        this.rating = rating;
-        this.status = status;
-        this.coverColor = coverColor;
-    }
-
 }
