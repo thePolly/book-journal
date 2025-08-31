@@ -1,6 +1,7 @@
 package com.polina.bookjournal.controller;
 
 import com.polina.bookjournal.model.Book;
+import com.polina.bookjournal.model.BookStatus;
 import com.polina.bookjournal.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,15 @@ public class BookController {
     }
 
     @GetMapping
-    public List<Book> getAllBooks() {
+    public List<Book> getAllBooks( @RequestParam(required = false) BookStatus status,
+    @RequestParam(required = false) String author
+    ) {
+        if (status != null) {
+            return bookRepository.findByStatus(status);
+        }
+        if (author!= null) {
+            return bookRepository.findByAuthor(author);
+        }
         return bookRepository.findAll();
     }
 
