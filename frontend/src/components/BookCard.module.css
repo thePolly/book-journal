@@ -1,0 +1,33 @@
+.card {
+    width: 100px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--cover-color, #f2f2f2);
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.author {
+  margin: 0;
+  color: #555;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.rating {
+  margin: 0;
+}
