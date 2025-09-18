@@ -1,11 +1,35 @@
+import { useState, useEffect } from 'react';
 import BookList from '../components/BookList';
-import { Link } from 'react-router-dom';
+import AddBookModal from '../components/AddBookModal';
+import { getBooks } from '../services/bookService';
 
 
 export default function Home() {
-  return (
+const [books, setBooks] = useState([]);
+const [showModal, setShowModal] = useState(false);
+
+
+  const fetchBooks = async () => {
+    const res = await getBooks();
+    setBooks(res.data);
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+
+return (
+
     <div>
-      <BookList />
+       <button onClick={() => setShowModal(true)}>➕</button>
+       <BookList books={books} />
+      {showModal && (
+        <AddBookModal
+          onClose={() => setShowModal(false)}
+          onBookAdded={fetchBooks}
+        />
+      )}
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function BookCard({ book }) {
       style={{ '--cover-color': book.coverColor || '#f2f2f2' }}
     >
       <h3 className={styles.title}>{book.title}</h3>
-      <p className={styles.author}>Автор: {book.author}</p>
+      <p className={styles.author}> Author: {book.author}</p>
       <p className={styles.statusRow}>
         {statusIcon && (
           <img

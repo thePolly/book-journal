@@ -1,21 +1,10 @@
-import { useEffect, useState } from 'react';
-import { getBooks } from '../services/bookService';
 import BookCard from './BookCard';
+import  './BookList.css'
 
-export default function BookList() {
-
-    const [books, setBooks] = useState([]);
-
-    useEffect(() => {
-    getBooks().then(res => setBooks(res.data));
-    }, []);
-
-    if (books.length === 0) {
-    return <p>No books</p>;
-    }
+export default function BookList({books}) {
 
     return (
-    <div>
+    <div className="book-list">
         {books.map(book => (
         <BookCard key={book.id} book={book} />
         ))}
