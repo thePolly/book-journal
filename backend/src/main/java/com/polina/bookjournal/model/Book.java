@@ -1,6 +1,7 @@
 package com.polina.bookjournal.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,10 +22,14 @@ public class Book {
     @GeneratedValue
     private UUID id;
 
+    @NotBlank
     private String title;
 
+    @NotBlank
     private String author;
 
+    @Min(0)
+    @Max(10)
     private int rating;
 
     @Enumerated(EnumType.STRING)
