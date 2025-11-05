@@ -4,7 +4,7 @@ A full-stack web application for tracking books, reading progress, and personal 
 
 ## UI Preview
 
-![Book Journal UI](frontend/ui.jpg)
+![Book Journal Demo](Animation.gif)
 
 ## Tech Stack
 
