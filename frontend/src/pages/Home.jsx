@@ -3,6 +3,7 @@ import BookList from '../components/BookList';
 import AddBookModal from '../components/AddBookModal';
 import { getBooks } from '../services/bookService';
 import BookFilter from '../components/BookFilter';
+import styles from './Home.module.css';
 
 
 export default function Home() {
@@ -32,9 +33,13 @@ const [filters, setFilters] = useState({title: '', author: '', status: ''});
 return (
 
     <div>
-      <button onClick={() => setShowModal(true)}>➕</button>
-      <BookFilter filters = {filters} setFilters={setFilters} />
+      <div className={styles.buttonAndFilters}>
+        <button className={styles.addButton} onClick={() => setShowModal(true)}>+</button>
+        <BookFilter filters = {filters} setFilters={setFilters} />
+      </div>
+    <hr className={styles.divider} />
       <BookList books={filteredBooks} />
+ 
       {showModal && (
         <AddBookModal
           onClose={() => setShowModal(false)}

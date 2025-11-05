@@ -1,39 +1,39 @@
 .header {
-  background-color: #b0c379; /* светло-зелёный */
-  padding: 1rem 2rem;
+  background-color: #b0c379; 
+  height: 2.5rem;
+  padding: 2rem 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #000000;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .title {
   margin: 0;
-  font-size: 2rem;
+  font-size: 3rem;
   color: white;
   font-family: 'Georgia', serif;
 }
 
 .title-link {
   text-decoration: none;
+  font-size: 2rem;
   color: white;
 }
 
-.title-link:hover {
-  text-decoration: underline;
-}
 
 .nav-button {
   background-color: #f4ede4;
   color: #572f2f;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
   transition: all 0.2s ease;
 }

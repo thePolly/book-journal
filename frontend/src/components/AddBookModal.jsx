@@ -10,7 +10,7 @@ export default function AddBookModal({onClose, onBookAdded}) {
         author: "",
         status: "TO_READ",
         rating: 0,
-        coverColor: "#f2f2f2",
+        coverColor: "#b37f62ff",
         startDate: new Date().toISOString().split('T')[0], 
         finishDate: null
     });
@@ -39,8 +39,7 @@ export default function AddBookModal({onClose, onBookAdded}) {
             <option value="FINISHED">Finished</option>
             <option value="DROPPED">Dropped</option>
           </select>
-          <input name="rating" type="number" min="0" max="10" value={form.rating} onChange={handleChange} />
-          <input name="coverColor" type="color" value={form.coverColor} onChange={handleChange} />
+          <input name="rating" type="number" min="0" max="5" value={form.rating} onChange={handleChange} />
           <div className="modal-buttons">
             <button type="submit">Add Book</button>
             <button type="button" onClick={onClose}>Cancel</button>

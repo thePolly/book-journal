@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header';
 import About from './components/About';
+import "@fontsource/playfair-display";
+import "@fontsource/cormorant-garamond";
 
 function App() {
   return (

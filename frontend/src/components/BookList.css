@@ -1,6 +1,7 @@
 .book-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 50px;
   justify-content: flex-start;
+  margin: 50px 150px;
 }

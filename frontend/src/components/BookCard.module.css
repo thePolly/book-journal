@@ -1,24 +1,42 @@
 .card {
-    width: 100px;
-  padding: 1rem;
+  position: relative;
+  width: 150px;
+  height: 180px;
+  padding: 3rem 1rem 1rem 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  background-color: var(--cover-color, #f2f2f2);
+  background-color: var(--cover-color, #866a6a);
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.statusBadge {
+  position: absolute; 
+  top: -1rem;             
+  right: -1rem;          
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%; 
+  background-color: var(--badge-bg, #ccc);
+  display: flex;
+  justify-content: center;
+  align-items: center;  
 }
 
 .title {
-  font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
   font-weight: bold;
   margin: 0;
 }
 
 .author {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
   margin: 0;
-  color: #555;
+  color: #ffffff;
 }
 
 .statusRow {
@@ -30,4 +48,32 @@
 
 .rating {
   margin: 0;
+}
+
+
+
+.card[status="FINISHED"] .statusBadge {
+  background-color: #4caf50; 
+}
+
+
+.card[status="READING"] .statusBadge {
+  background-color: #fbc02d; 
+}
+
+
+.card[status="TO_READ"] .statusBadge {
+  background-color: #bdbdbd; 
+}
+
+
+.card[status="DROPPED"] .statusBadge {
+  background-color: #e57373; 
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: 1rem;
 }

@@ -1,19 +1,23 @@
+import styles from './BookFilter.module.css';
+
 export default function BookFilter({ filters, setFilters }) {
     return (
-    <div className="book-filters" >
+    <div   className={styles.filterBar}>
     <input
+        className={styles.filterInput}
         type="text"
         placeholder="Search by title"
         value={filters.title}
         onChange={(e) => setFilters({ ...filters, title: e.target.value })}
     />
     <input
+        className={styles.filterInput}
         type="text"
         placeholder="Search by author"
         value={filters.author}
         onChange={(e) => setFilters({ ...filters, author: e.target.value })}
     />
-    <select
+    <select className= {styles.filterSelect}
         value={filters.status}
         onChange={(e) => setFilters({ ...filters, status: e.target.value })}
     >
