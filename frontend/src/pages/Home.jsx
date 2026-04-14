@@ -5,12 +5,28 @@ import { getBooks } from '../services/bookService';
 import BookFilter from '../components/BookFilter';
 import styles from './Home.module.css';
 
+const LOCAL_STORAGE_KEY = 'bookJournalBooks';
 
 export default function Home() {
-const [books, setBooks] = useState([]);
-const [showModal, setShowModal] = useState(false);
-const [filters, setFilters] = useState({title: '', author: '', status: ''});
+  const [books, setBooks] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [filters, setFilters] = useState({ title: '', author: '', status: '' });
 
+  const saveBooksToStorage = (bookList) => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(bookList));
+  };
+
+  const loadBooksFromStorage = () => {
+    const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (!stored) return null;
+
+    try {
+      return JSON.parse(stored);
+    } catch {
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
+      return null;
+    }
+  };
 
   const fetchBooks = async () => {
     const res = await getBooks();
@@ -18,8 +34,17 @@ const [filters, setFilters] = useState({title: '', author: '', status: ''});
   };
 
   useEffect(() => {
-    fetchBooks();
+    const savedBooks = loadBooksFromStorage();
+    if (savedBooks && savedBooks.length > 0) {
+      setBooks(savedBooks);
+    } else {
+      fetchBooks();
+    }
   }, []);
+
+  useEffect(() => {
+    saveBooksToStorage(books);
+  }, [books]);
 
   const filteredBooks = books.filter((book) => {
     return (
